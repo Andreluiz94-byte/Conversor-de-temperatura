@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Conversor de temperatura</title>
+  <style>
+    /* CSS para estilizar o site aqui */
+  
+    body {
+        background-color: #ffd942; /* Cor de fundo chamativa */
+        text-align: center; /* Centralizar o texto */
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+      }
+      
+      /* Alterar o tamanho da fonte de acordo com o tamanho da tela */
+      @media screen and (max-width: 600px) {
+        body {
+          font-size: 14px;
+        }
+      }
+      
+      @media screen and (min-width: 601px) and (max-width: 900px) {
+        body {
+          font-size: 16px;
+        }
+      }
+      
+      @media screen and (min-width: 901px) {
+        body {
+          font-size: 18px;
+        }
+      }
+      
+      /* Alinhar o input e o botão lado a lado em telas largas */
+      @media screen and (min-width: 601px) {
+        input[type="number"], button {
+          display: inline-block;
+          vertical-align: middle;
+        }
+
+    /* Centralizar elementos em dispositivos móveis */
+@media screen and (max-width: 600px) {
+    body {
+      text-align: center;
+    }
+  }
+  
+      }
+      #clock {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        background-color: #333;
+        margin: 20px auto;
+        position: relative;
+        padding: 2px;
+        box-shadow: 
+          0 0 0 4px rgba(0,0,0,0.1), 
+          inset 0 0 0 3px #fff,
+          inset 0 0 10px black,
+          0 0 10px rgba(0,0,0,0.2);
+      }
+      
+      .clock-face {
+        width: 100%;
+        height: 100%;
+        position: relative;
+      }
+      
+      .hand {
+        width: 50%;
+        height: 6px;
+        background: black;
+        position: absolute;
+        top: 50%;
+        transform-origin: 100%;
+        transform: rotate(90deg);
+      }
+      
+      .hour-hand {
+        width: 50%;
+        height: 6px;
+        background: black;
+        position: absolute;
+        top: 50%;
+        transform-origin: 100%;
+        transform: rotate(90deg);
+      }
+      
+      .minute-hand {
+        width: 50%;
+        height: 4px;
+        background: rgb(197, 192, 192);
+        position: absolute;
+        top: 50%;
+        transform-origin: 100%;
+        transform: rotate(90deg);
+      }
+      
+      .second-hand {
+        width: 50%;
+        height: 2px;
+        background: red;
+        position: absolute;
+        top: 50%;
+        transform-origin: 100%;
+        transform: rotate(90deg);
+      }
+  </style>
+</head>
+
+<body>
+
+    <div id="clock">
+        <div class="clock-face">
+          <div class="hand hour-hand"></div>
+          <div class="hand minute-hand"></div>
+          <div class="hand second-hand"></div>
+        </div>
+      </div>
+
+    
+      
+    <h1 style="color: red; font-size: 32px; font-weight: bold;">Conversor de temperatura</h1>
+
+  <p>Insira o valor em Celsius que deseja converter:</p>
+  <input type="number" id="celsius-input">
+  <button onclick="convertTemperature()">Converter</button>
+  <p>Resultado:</p>
+  <p id="result"></p>
+
+  <script>
+    function convertTemperature() {
+        // Obter o valor em Celsius do input
+        const celsius = document.getElementById('celsius-input').value;
+      
+        // Converter para Fahrenheit
+        const fahrenheit = (celsius * 9) / 5 + 32;
+      
+        // Converter para kelvin
+        const kelvin = (celsius * 1) + 273.15;
+      
+        // Atualizar o resultado na página
+        const resultElement = document.getElementById('result');
+        resultElement.innerHTML = `${celsius} ºC é equivalente a ${fahrenheit} ºF e ${kelvin} K.`;
+      }
+      
+      
+  </script>
+</body>
+</html>
